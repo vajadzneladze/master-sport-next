@@ -1,0 +1,28 @@
+.kaFonts{
+    a{
+        font-family: 'Noto Sans Georgian';
+    }
+
+    .carousel{
+        h1{
+            font-family:datebashvili;
+        }
+        p{
+            font-family: 'Noto Sans Georgian';        
+        }
+    }
+    
+    .receiveCall,.homeBlock p, .homeBlock span,.preLoader h3, .textContent .textContent, .newsPage p, .newsPage span.date, .newsPage p, .newsPageShow .date, .newsPageShow .description, .newsPageShow .share, .timelineBlock span,.infoBlock h1, .infoBlock p,.leftSide li,.popup, .contactInfo,.projectPage .text, .projectBlock span,.projectShow p,.floorChoose span, .leftProjects p, .allProjects p.desc, .floorPage p,.floorInfo a, .conditionPage a,.conditionPage .text,.backFloor, .tableRooms td, .flatTitle, .flatPrices,.flatChanges,.calculatorPage p,.min,.max, .first .percent,button.calc, .callPopup h1, .callPopup .text, .callPopup input, .callPopup button,.loanMonth, .fets span, .downloadPdf p, .downloadPdf button, .menuBlock, .accordion-item p,.accordion-item li,.sendBtn,.floorMobile p,.hover .bottom,.faqPage .category,.myToast{
+        font-family: 'Noto Sans Georgian';
+    }
+    .customButton,.homeBlock h1,.sortProject a,.top p,.top span,.project,.timelineBlock h3,.timelinePage h1,.newsPageShow h1, .news_block.in_block p.title,.accordion-item button,.leftSide h1,.sendMessage,.sendDiv input, .sendDiv textarea{
+        font-family:'bpg_extrasquare_mtavruli_2009';
+    }
+    .textPage h1, .textPage .fixedLeft,.newsPage h1, .faqPage h1, .sendDiv h1, .projectPage h1,.projectShow h1, .floorChoose h1, .leftProjects h1, .allProjects span.title, .floorPage h1, .conditionPage h1, .calculatorPage .first, .calculatorPage h2, .calculatorPage h3, .fets p,.floorMobile span{
+        font-family:datebashvili;
+    }
+	
+	.textPage h1{
+		top:-16px;
+	}
+}

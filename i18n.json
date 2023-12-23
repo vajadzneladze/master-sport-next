@@ -1,0 +1,11 @@
+ {
+            "defaultLocale": "ka",
+            "locales": ["ka","en"],
+            "localeDetection":false,
+            "keySeparator": ":",
+        
+            "pages": {
+              "*": ["common"],
+              "/": ["common"]
+            }
+          }

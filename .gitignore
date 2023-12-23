@@ -1,0 +1,46 @@
+# .gitignore
+
+# Node.js
+node_modules/
+
+# Build files
+/.next/
+/out/
+
+# Environment variables
+.env.local
+
+# Dependency lock files
+package-lock.json
+yarn.lock
+
+# Runtime data
+/db.json
+
+# Next.js development files
+.next/
+.next-cache/
+.next-config.js
+
+# Compiled JSX files
+/.next/
+
+# Next.js Image Optimization cache
+.next/cache/
+
+# IDE (e.g., Visual Studio Code) configuration files
+.vscode/
+
+# Logs
+*.log
+
+# Output of 'npm pack'
+*.tgz
+
+# macOS metadata
+.DS_Store
+
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+Thumbs.db:encryptable:$DATA
