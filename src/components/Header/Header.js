@@ -149,6 +149,7 @@ const Header = ({
                         </button>
 
                         <img
+                            onClick = { () => router.push('/account/personal')}
                             src={
                                 withBg
                                     ? '/profile-icon-dark.svg'
