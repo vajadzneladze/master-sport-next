@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import '../css/style.css'
 import SSRProvider from 'react-bootstrap/SSRProvider'
 import { createContext } from 'react'
+import { CartProvider } from '@/context/CartContext'
 export const AppContext = createContext(null)
 
 const App = ({ Component, pageProps, navigation }) => {
@@ -13,13 +14,15 @@ const App = ({ Component, pageProps, navigation }) => {
     const cart = {}
 
     return (
-        <SSRProvider>
+        // <SSRProvider> // todo : check this ...
             <AppContext.Provider value={(appData, cart)}>
-                <AppLayout>
-                    <Component {...pageProps}></Component>
-                </AppLayout>
+                <CartProvider>
+                    <AppLayout>
+                        <Component {...pageProps}></Component>
+                    </AppLayout>
+                </CartProvider>
             </AppContext.Provider>
-        </SSRProvider>
+        // </SSRProvider>
     )
 }
 

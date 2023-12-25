@@ -3,7 +3,13 @@ import SingleProduct from './SingleProduct'
 
 import Slider from 'react-slick'
 
-const ProductsSection = ({ title = ' ', description = '', module = '' }) => {
+const ProductsSection = ({
+    title = ' ',
+    description = '',
+    module = '',
+    data = [],
+    productClasses = '',
+}) => {
     const sliderRef = useRef(null)
 
     const moveProductsHandler = str => {
@@ -58,65 +64,16 @@ const ProductsSection = ({ title = ' ', description = '', module = '' }) => {
             <div className="vw-100">
                 <div className="row products  mx-0 px-0 ">
                     <Slider ref={sliderRef} {...sliderSettings} className="p-0">
-                        <SingleProduct
-                            classes="col-12 col-sm-6 col-md-3 col-lg-3 me-4"
-                            productType={
-                                module === 'needed-products' ? 'sale' : 'new'
-                            }
-                            withTimer={
-                                module === 'needed-products' ? true : false
-                            }
-                        />
-
-                        <SingleProduct
-                            classes="col-12 col-sm-6 col-md-3 col-lg-3 me-4"
-                            productType={
-                                module === 'needed-products' ? 'sale' : 'new'
-                            }
-                            withTimer={
-                                module === 'needed-products' ? true : false
-                            }
-                        />
-
-                        <SingleProduct
-                            classes="col-12 col-sm-6 col-md-3 col-lg-3 me-4"
-                            productType={
-                                module === 'needed-products' ? 'sale' : 'new'
-                            }
-                            withTimer={
-                                module === 'needed-products' ? true : false
-                            }
-                        />
-
-                        <SingleProduct
-                            classes="col-12 col-sm-6 col-md-3 col-lg-3 me-4"
-                            productType={
-                                module === 'needed-products' ? 'sale' : 'new'
-                            }
-                            withTimer={
-                                module === 'needed-products' ? true : false
-                            }
-                        />
-
-                        <SingleProduct
-                            classes="col-12 col-sm-6 col-md-3 col-lg-3 me-4"
-                            productType={
-                                module === 'needed-products' ? 'sale' : 'new'
-                            }
-                            withTimer={
-                                module === 'needed-products' ? true : false
-                            }
-                        />
-
-                        <SingleProduct
-                            classes="col-12 col-sm-6 col-md-3 col-lg-3 me-4"
-                            productType={
-                                module === 'needed-products' ? 'sale' : 'new'
-                            }
-                            withTimer={
-                                module === 'needed-products' ? true : false
-                            }
-                        />
+                        {data.map(item => {
+                            return (
+                                <SingleProduct
+                                    key={item.id}
+                                    // classes={productClasses}
+                                    classes="col-12 col-sm-6 col-md-3 col-lg-3 me-4"
+                                    data={item}
+                                />
+                            )
+                        })}
                     </Slider>
                 </div>
             </div>

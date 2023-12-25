@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import BagItem from '@/components/Cart/BagItem'
+import CartItem from '@/components/Cart/CartItem'
 import DeliveryAddressContainer from '@/components/Cart/DeliveryAddressContainer'
 import DeliveryForm from '@/components/Cart/DeliveryForm'
 import DeliveryShippingSpeed from '@/components/Cart/DeliveryShippingSpeed'
@@ -10,7 +12,8 @@ import ReviewShippingDetails from '@/components/Cart/ReviewShippingDetails'
 import ShippingDetails from '@/components/Cart/ShippingDetails'
 import StoreContainer from '@/components/Cart/StoreContainer'
 import Summary from '@/components/Cart/Summary'
-import { useState } from 'react'
+import { calculateSubtotal, calculateTax, calculateTotal } from '@/lib/calc'
+import { useCart } from '@/context/CartContext'
 
 const shippingSpeedData = [
     {
@@ -124,6 +127,22 @@ const Delivery = () => {
         phone: '',
     }) // address form  ( add new /  update existing  form )
 
+    const {
+        cartItems,
+        removeFromCart,
+        updateQuantity,
+        applyPromoCode,
+        promoCode,
+    } = useCart()
+
+    const subTotal = calculateSubtotal(cartItems)
+    const tax = calculateTax(subTotal, 0.1) // Example: 10% tax rate
+    const shippingCost = subTotal > 0 ? 5.99 : 0 // Example: Flat rate shipping cost
+    const total = calculateTotal(subTotal, tax, shippingCost, promoCode)
+
+
+
+
     /** Address form inputs value change handler */
     const inputChangeHandler = e => {
         e.preventDefault()
@@ -194,8 +213,15 @@ const Delivery = () => {
 
                         {step === 3 && (
                             <div className="items">
-                                {bagItems.map((item, index) => {
-                                    return <BagItem {...item} key={item.id} module = { 'order-review' }/>
+                                {cartItems.map((item, index) => {
+                                    return (
+                                        <BagItem
+                                            {...item}
+                                            key={item.id}
+                                            module={'order-review'}
+                                            setCountHandler = {updateQuantity}
+                                        />
+                                    )
                                 })}
                             </div>
                         )}

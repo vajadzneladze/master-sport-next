@@ -1,31 +1,27 @@
-const {rewrites} = require('./rewrites.js')
+const { rewrites } = require('./rewrites.js')
 const nextTranslate = require('next-translate-plugin')
 
-
-
 const { loadCustomBuildParams } = require('./next-utils.config')
-const { esmExternals = true, tsconfigPath } =loadCustomBuildParams()
+const { esmExternals = true, tsconfigPath } = loadCustomBuildParams()
 
 const nextConfig = {
-  experimental: {
-    esmExternals,
-  },
-  reactStrictMode: false,
-  typescript: {
-    tsconfigPath,
-  },
-  images: {
-    remotePatterns: [
-      {
-        hostname: 'api.ux.ge',
-      },
-    ],
-  },
+    experimental: {
+        esmExternals,
+    },
+    reactStrictMode: false,
+    typescript: {
+        tsconfigPath,
+    },
+    images: {
+        remotePatterns: [
+            {
+                hostname: 'api.ux.ge',
+            },
+        ],
+    },
 
-  async rewrites() {
-    return rewrites;
-  }
-
-
+    async rewrites() {
+        return rewrites
+    },
 }
-module.exports = nextTranslate(nextConfig);
+module.exports = nextTranslate(nextConfig)

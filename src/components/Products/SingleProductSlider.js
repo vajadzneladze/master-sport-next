@@ -1,8 +1,9 @@
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import Image from 'next/image'
 import Slider from 'react-slick' // Import the Slider component from 'react-slick'
 
-const SingleProductSlider = ({ swipe = false }) => {
+const SingleProductSlider = ({ swipe = false, imgs = [] }) => {
     const sliderSettings = {
         dots: true,
         infinite: true,
@@ -16,28 +17,20 @@ const SingleProductSlider = ({ swipe = false }) => {
     return (
         <Slider className="img-switcher" {...sliderSettings}>
             {/* Add your slider content here */}
-            <div>
-                <img
-                    src="/product-4.png"
-                    alt="Product Image 1"
-                    className="product-image-displayed"
-                />
-            </div>
-            <div>
-                <img
-                    src="/product-1.png"
-                    alt="Product Image 2"
-                    className="product-image-displayed"
-                />
-            </div>
-            <div>
-                <img
-                    src="/product-2.png"
-                    alt="Product Image 2"
-                    className="product-image-displayed"
-                />
-            </div>
-            {/* Add more slides as needed */}
+
+            {imgs.map((url, index) => {
+                return (
+                    <div key={index}>
+                        <Image
+                            src={url}
+                            alt="Product Image"
+                            width = '269'
+                            height = '200'
+                            className="product-image-displayed"
+                        />
+                    </div>
+                )
+            })}
         </Slider>
     )
 }

@@ -3,56 +3,74 @@ import ProductTimer from './ProductTimer'
 import Link from 'next/link'
 
 import SingleProductSlider from './SingleProductSlider'
+import { useCart } from '@/context/CartContext'
 
-const SingleProduct = ({
-    classes = '',
-    productType = '',
-    withTimer = false,
-    swipe = false,
-    rediretUrl = '/products/view/1', 
-}) => {
+const SingleProduct = ({ classes = '', data = {} }) => {
+    const {
+        id,
+        title,
+        description,
+        imgUrl,
+        price,
+        newPrice,
+        isSale,
+        isNew,
+        endTime,
+    } = data
 
-    const productTypeClass = productType // sale , new
-    const timer = withTimer // has timers
-    const endTime = new Date('2024-01-01T12:00:00').getTime() // timout date ( case : sale  )
+    const time = endTime ? new Date(endTime).getTime() : null
+    const badgeClass = isSale ? 'sale' : isNew ? 'new' : ''
+
+    const { addToCart } = useCart()
+
+    const handleAddToCart = () => {
+        addToCart({
+            ...data,
+            count: 1,
+        })
+    }
 
     return (
         <div className={classes + ' product'}>
             <div className="row align-items-center justify-content-between">
-                <div className={`col-5 ${productTypeClass || 'opacity-0'}`}>
+                <div
+                    className={`col-5    ${
+                        badgeClass ? badgeClass : 'opacity-0'
+                    }`}>
                     <span>
-                        {productTypeClass === 'sale' && `Save %40`}
-                        {productTypeClass === 'new' && `New`}
+                        {isSale && `Save %40`}
+                        {isNew && `New`}
                     </span>
                 </div>
 
                 <div className="col-7 timeout">
-                    {timer && <ProductTimer endTime={endTime} />}
+                    {isSale && time  ?  <ProductTimer endTime={time} />  : ''}
                 </div>
             </div>
 
             <div className="row">
                 <div className="col-12">
-                    <SingleProductSlider swipe={swipe} />
+                    <SingleProductSlider
+                        imgs={[
+                            '/product-1.png',
+                            '/product-2.png',
+                            '/product-3.png',
+                        ]}
+                    />
                 </div>
             </div>
 
             <div className="d-flex flex-column product-info">
                 <h4 className="title">
-                    <Link href={rediretUrl}> Magnum Standing Arm Curl </Link>
+                    <Link href={`/products/view/${id}`}>{title}</Link>
                 </h4>
-                <p className="description">
-                    Ideal for exercises focusing on the upper body
-                </p>
+                <p className="description">{description}</p>
                 <div className="d-flex justify-content-between">
-                    <p
-                        className={`prices  ${
-                            productTypeClass === 'sale' && 'item-sale'
-                        }`}>
-                        $223.00
-                        {productTypeClass === 'sale' && <del>$119.00</del>}
+                    <p className={`prices  ${isSale ? 'item-sale' : ''}`}>
+                        ${isSale ? newPrice : price}
+                        {isSale && <del>${price}</del>}
                     </p>
-                    <div className="to-cart">
+                    <div className="to-cart" onClick={handleAddToCart}>
                         <img src="/product-hover-cart.svg" alt="" />
                     </div>
                 </div>

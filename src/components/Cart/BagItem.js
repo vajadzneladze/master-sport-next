@@ -2,30 +2,37 @@ const BagItem = ({
     id,
     title,
     description,
-    sale,
-    img = '',
+    imgUrl,
     price,
     newPrice,
-    count = 1,
+    isSale,
+    isNew,
+    quantity = 1,
     deleteHandler,
     setCountHandler,
     module = '',
 }) => {
+    const badgeClass = isSale && newPrice ? 'sale' : isNew ? 'new' : ''
+
+
     return (
         <div className="item d-flex">
             <div className="img">
-                <img src={img || '/product-1.png'} />
+                <img
+                    src={
+                        imgUrl && imgUrl.length > 0
+                            ? imgUrl[0]
+                            : '/product-1.png'
+                    }
+                />
             </div>
 
             <div className="info">
                 <div className="top d-flex flex-column flex-lg-row justify-content-md-between">
                     <h3 className="order-2 order-lg-1">{title}</h3>
-                    <p
-                        className={`price order-1 order-lg-2 ${
-                            sale ? 'sale' : ' '
-                        }`}>
-                        ${sale && newPrice ? newPrice : price}
-                        {sale && <del> ${price}</del>}
+                    <p className={`price order-1 order-lg-2 ${badgeClass}`}>
+                        ${isSale && newPrice ? newPrice : price}
+                        <del> {isSale && newPrice ? '$' + price : ''}</del>
                     </p>
                 </div>
                 <p>{description}</p>
@@ -36,14 +43,18 @@ const BagItem = ({
                         <form>
                             <select
                                 className="form-select count-select"
-                                defaultValue={count}
+                                value={quantity}
                                 onChange={e =>
                                     setCountHandler(id, e.target.value)
                                 }>
-                                <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
                             </select>
                         </form>
                     </div>
