@@ -4,8 +4,9 @@ import ProductTimer from '@/components/Products/ProductTimer'
 import ProductViewGallery from '@/components/Products/ProductViewGallery'
 import ProductsSection from '@/components/Products/ProductsSection'
 import SuperChargeSection from '@/components/SuperCharge/SuperChargeSection'
+import { useCart } from '@/context/CartContext'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
-
 
 const productsArray = [
     {
@@ -143,7 +144,6 @@ const productsArray = [
     },
 ]
 
-
 const consoles = [
     {
         id: 1,
@@ -160,6 +160,13 @@ const consoles = [
 ]
 
 const ProductView = () => {
+    const router = useRouter()
+    const { id } = router.query
+
+    const { addToCart } = useCart();
+
+
+
     const [selected, setSelected] = useState({
         quantity: 1,
         console: 1,
@@ -171,6 +178,16 @@ const ProductView = () => {
 
     const onSelectHandler = (key, val) => {
         setSelected(prev => ({ ...prev, [key]: val }))
+    }
+
+    const clickHandler = () => {
+
+
+
+
+       
+
+
     }
 
     return (
@@ -202,7 +219,6 @@ const ProductView = () => {
                             <ProductViewGallery />
                         </div>
                     </div>
-
 
                     <div className="info col-12 col-md-6">
                         <div className="d-flex flex-column product-info-top  d-none d-md-block">
@@ -281,7 +297,7 @@ const ProductView = () => {
                                 </div>
                             </div>
 
-                            <button className="order-4">
+                            <button className="order-4" onClick = { () => clickHandler() }>
                                 In the shopping cart
                             </button>
                         </div>
@@ -447,7 +463,7 @@ const ProductView = () => {
                 title="Same Products"
                 description="To bulletproof your body"
                 module="product-view"
-                data = {productsArray}
+                data={productsArray}
             />
 
             <PartnersSection classes="d-block d-md-none" />

@@ -141,7 +141,7 @@ const About = () => {
                         <div className="position-absolute w-100 h-100 d-flex justify-content-end align-items-center">
                             <div className="info">
                                 <h3>Wireless Charging</h3>
-                                <p>
+                                <p className="d-none d-md-block">
                                     Wireless charging allows members to charge
                                     their personal devices while keeping their
                                     screens in view.
@@ -156,6 +156,7 @@ const About = () => {
             <QuestionsSection
                 title="Any Questions?"
                 description=" Frequently asked questions"
+                module = 'about'
             />
         </>
     )

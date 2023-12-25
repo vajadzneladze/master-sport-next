@@ -59,7 +59,7 @@ const words = [
     },
 ]
 
-const QuestionsSection = ({ title = '', description = ' ' }) => {
+const QuestionsSection = ({ title = '', description = ' ', module = '' }) => {
     const [activeIndex, setActiveIndex] = useState(null)
 
     return (
@@ -83,11 +83,13 @@ const QuestionsSection = ({ title = '', description = ' ' }) => {
                         })}
                 </div>
 
-                <div className="row words">
-                    {words.map((item, index) => {
-                        return <Word {...item} key={index} />
-                    })}
-                </div>
+                {module !== 'about' && (
+                    <div className="row words">
+                        {words.map((item, index) => {
+                            return <Word {...item} key={index} />
+                        })}
+                    </div>
+                )}
             </div>
         </section>
     )

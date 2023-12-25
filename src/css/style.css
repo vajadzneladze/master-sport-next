@@ -2656,7 +2656,6 @@ section h1 {
     max-height: 100%;
 }
 
-
 #shop-view .gallery .wrap .slick-slide {
     margin-right: 24px; /* Adjust the margin to set the desired gap */
 }
@@ -3519,6 +3518,10 @@ section h1 {
 
 .everything-you-need {
     padding-top: 120px;
+}
+
+.everything-you-need .slick-list {
+    padding-top: 15px !important;
 }
 
 .everything-you-need .titles > h3 {
@@ -4831,6 +4834,10 @@ section .products .product > div:first-child {
         text-align: left;
     }
 
+    #home.about .content h2 {
+        font-size:48px;
+    }
+
     #home .content p {
         width: 90%;
         white-space: unset;
@@ -5786,5 +5793,49 @@ section .products .product > div:first-child {
 
     #contact .form-layer .contact-form p {
         margin-bottom: 40px;
+    }
+
+    #posters .grid-container .grid-item {
+        position: relative;
+        overflow: hidden;
+    }
+
+    #posters .grid-container .grid-item h3 {
+        font-size: 24px;
+        text-align: center;
+        width: max-content;
+    }
+
+    #posters .grid-container .grid-item > div {
+        padding: 10px;
+        display: flex;
+
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    #posters .grid-container .grid-item-1 img {
+        height: 200px;
+    }
+
+    #posters .grid-container .grid-item-2 img,
+    #posters .grid-container .grid-item-3 img {
+        max-height: 180px;
+    }
+
+    #posters .grid-container .grid-item-4 .info {
+        width:fit-content !important;
+    }
+
+    #posters .grid-container .grid-item-4 img {
+        height: 200px;
+    }
+
+    #some-info .row > div {
+        padding-bottom:20px;
+    }
+
+    #some-info h2 {
+        font-size:24px;
     }
 }

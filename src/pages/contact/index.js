@@ -3,7 +3,6 @@ import Map from '../../components/Map'
 import Marker from '../../components/Marker'
 import useTranslation from 'next-translate/useTranslation'
 
-
 import { useState } from 'react'
 
 const Contact = () => {
@@ -34,8 +33,9 @@ const Contact = () => {
         formData.append('phone', form.phone)
         formData.append('email', form.email)
         formData.append('contact_message', form.contact_message)
-        
     }
+
+    
     return (
         <section className="container-fluid" id="contact">
             <div className="container form-layer">

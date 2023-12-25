@@ -1,20 +1,21 @@
 import { useEffect, useState } from 'react'
 
 const ProductTimer = ({ endTime }) => {
-    
-    const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining())
+    const [timeRemaining, setTimeRemaining] = useState(
+        calculateTimeRemaining(endTime),
+    )
 
     useEffect(() => {
         const timerInterval = setInterval(() => {
-            setTimeRemaining(calculateTimeRemaining())
+            setTimeRemaining(calculateTimeRemaining(endTime))
         }, 1000)
 
         return () => clearInterval(timerInterval)
-    }, [])
+    }, [endTime]) // Include endTime as a dependency
 
-    function calculateTimeRemaining() {
+    function calculateTimeRemaining(time) {
         const now = new Date().getTime()
-        const end = new Date(endTime).getTime()
+        const end = new Date(time).getTime()
         const timeLeft = end - now
 
         if (timeLeft <= 0) {
@@ -33,7 +34,7 @@ const ProductTimer = ({ endTime }) => {
     }
 
     return (
-        <p className="text-end mb-0"> 
+        <p className="text-end mb-0">
             End time
             <span>
                 {timeRemaining.days}
