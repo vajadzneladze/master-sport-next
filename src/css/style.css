@@ -2868,7 +2868,8 @@ section h1 {
     grid-template-areas:
         'wife wife'
         'wireless wireless'
-        'virtual sprint';
+        'virtual virtual '
+        'sprint sprint';
     gap: 4px;
     margin-bottom: 120px;
 }
@@ -4835,7 +4836,7 @@ section .products .product > div:first-child {
     }
 
     #home.about .content h2 {
-        font-size:48px;
+        font-size: 48px;
     }
 
     #home .content p {
@@ -5824,7 +5825,7 @@ section .products .product > div:first-child {
     }
 
     #posters .grid-container .grid-item-4 .info {
-        width:fit-content !important;
+        width: fit-content !important;
     }
 
     #posters .grid-container .grid-item-4 img {
@@ -5832,10 +5833,10 @@ section .products .product > div:first-child {
     }
 
     #some-info .row > div {
-        padding-bottom:20px;
+        padding-bottom: 20px;
     }
 
     #some-info h2 {
-        font-size:24px;
+        font-size: 24px;
     }
 }

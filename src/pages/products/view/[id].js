@@ -163,9 +163,7 @@ const ProductView = () => {
     const router = useRouter()
     const { id } = router.query
 
-    const { addToCart } = useCart();
-
-
+    const { addToCart } = useCart()
 
     const [selected, setSelected] = useState({
         quantity: 1,
@@ -180,14 +178,13 @@ const ProductView = () => {
         setSelected(prev => ({ ...prev, [key]: val }))
     }
 
-    const clickHandler = () => {
+    const clickHandler = (productId) => {
+        const currentProduct = productsArray.find(item => item.id === parseInt(id));
 
-
-
-
-       
-
-
+        addToCart({
+            ...currentProduct,
+            quantity: selected.quantity
+        })
     }
 
     return (
@@ -297,7 +294,9 @@ const ProductView = () => {
                                 </div>
                             </div>
 
-                            <button className="order-4" onClick = { () => clickHandler() }>
+                            <button
+                                className="order-4"
+                                onClick={() => clickHandler(id)}>
                                 In the shopping cart
                             </button>
                         </div>

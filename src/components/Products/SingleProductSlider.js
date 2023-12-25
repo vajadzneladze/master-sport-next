@@ -24,9 +24,10 @@ const SingleProductSlider = ({ swipe = false, imgs = [] }) => {
                         <Image
                             src={url}
                             alt="Product Image"
-                            width = '269'
-                            height = '200'
                             className="product-image-displayed"
+                            layout="responsive"
+                            width={269}
+                            height={200}
                         />
                     </div>
                 )
