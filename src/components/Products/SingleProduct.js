@@ -5,7 +5,7 @@ import Link from 'next/link'
 import SingleProductSlider from './SingleProductSlider'
 import { useCart } from '@/context/CartContext'
 
-const SingleProduct = ({ classes = '', data = {} }) => {
+const SingleProduct = ({ classes = '', data = {}  , swipe = false}) => {
     const {
         id,
         title,

@@ -5,18 +5,18 @@ import { calculateSubtotal, calculateTax, calculateTotal } from '@/lib/calc'
 const Summary = ({ step = 1, setStep }) => {
     const router = useRouter()
 
-    const {
-        cartItems,
-        removeFromCart,
-        updateQuantity,
-        applyPromoCode,
-        promoCode,
-    } = useCart()
+const {
+    cartItems,
+    removeFromCart,
+    updateQuantity,
+    applyPromoCode,
+    promoCode,
+} = useCart()
 
-    const subTotal = calculateSubtotal(cartItems)
-    const tax = calculateTax(subTotal, 0.1) // Example: 10% tax rate
-    const shippingCost = subTotal > 0 ? 5.99 : 0 // Example: Flat rate shipping cost
-    const total = calculateTotal(subTotal, tax, shippingCost, promoCode)
+const subTotal = calculateSubtotal(cartItems)
+const tax = calculateTax(subTotal, 0.1) // Example: 10% tax rate
+const shippingCost = subTotal > 0 ? 5.99 : 0 // Example: Flat rate shipping cost
+const total = calculateTotal(subTotal, tax, shippingCost, promoCode)
 
     return (
         <div className="col-12 col-lg-4 summary cart-summary">

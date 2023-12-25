@@ -17,6 +17,9 @@ import BannerSection from '@/components/Banner/BannerSection'
 import QuestionsSection from '@/components/Questions/QuestionsSection'
 import PartnersSection from '@/components/Partners/PartnersSection'
 
+
+
+
 const newProducts = [
     {
         id: 2,
@@ -153,6 +156,9 @@ const saleProducts = [
     },
     // Add more sale products as needed
 ]
+
+
+
 
 export default function Home(home) {
     return (

@@ -174,7 +174,7 @@ const CartPage = () => {
                     <div className="row">
                         <div className="col-12 col-lg-8 pe-0 pe-lg-5">
                             <h2 className="text-center cart-items-count d-block d-lg-none">
-                                Cart <span> / 3 Item </span>
+                                Cart <span> / {cartItems.length} Item </span>
                             </h2>
 
                             <div className="adds">

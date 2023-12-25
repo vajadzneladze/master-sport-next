@@ -161,8 +161,8 @@ const consoles = [
 
 const ProductView = () => {
     const [selected, setSelected] = useState({
-        quantity: 2,
-        console: 3,
+        quantity: 1,
+        console: 1,
     })
 
     const productTypeClass = '' // sale , new

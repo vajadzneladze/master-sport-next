@@ -3,6 +3,9 @@ import SingleProduct from './SingleProduct'
 
 import Slider from 'react-slick'
 
+// import 'slick-carousel/slick/slick.css';
+// import 'slick-carousel/slick/slick-theme.css';
+
 const ProductsSection = ({
     title = ' ',
     description = '',
@@ -26,14 +29,15 @@ const ProductsSection = ({
         infinite: true,
         speed: 500,
         slidesToShow: 1,
-        slidesToScroll: 1,
-        swipe: false, // Disable swipe with the mouse
+        slidesToScroll: 3,
+        swipe: true, // Disable swipe with the mouse
         variableWidth: true, // Allow variable width slides
         responsive: [
             {
                 breakpoint: 992,
                 settings: {
-                    swipe: true, // Disable swipe with the mouse
+                    swipe: true, 
+                    slidesToScroll: 1,
                 },
             },
         ],

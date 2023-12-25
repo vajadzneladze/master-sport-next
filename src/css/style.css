@@ -747,7 +747,6 @@ body.modal-open {
 
 #cart-modal .cart .item .price.sale p {
     color: #ff6b6b;
-
 }
 
 #cart-modal .cart .item .price del {
@@ -1188,7 +1187,6 @@ body.modal-open {
     margin-top: 64px;
     border: none;
 }
-
 
 #cart-page .summary.cart-summary > .price-sum {
     padding-top: 24px;
@@ -2638,7 +2636,7 @@ section h1 {
 #shop-view .gallery .wrap > div {
     position: relative;
     overflow: hidden;
-    width: 5000px;
+    /* width: 5000px; */
 }
 
 #shop-view .gallery .wrap .img {
@@ -2655,7 +2653,12 @@ section h1 {
 
 #shop-view .gallery .wrap .img img {
     width: 100%;
-    height: auto;
+    max-height: 100%;
+}
+
+
+#shop-view .gallery .wrap .slick-slide {
+    margin-right: 24px; /* Adjust the margin to set the desired gap */
 }
 
 #shop-view .info {
@@ -3582,7 +3585,7 @@ section h1 {
 .everything-you-need .products {
     gap: 24px;
     padding-bottom: 140px;
-    width: 10000px;
+    /* width: 10000px; */
     transition: 500ms;
 }
 

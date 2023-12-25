@@ -285,6 +285,7 @@ const products = () => {
                                                     key={item.id}
                                                     classes="col-12 col-md-6 col-lg-3"
                                                     data={item}
+                                                    swipe = {true}
                                                 />
                                             )
                                         })
